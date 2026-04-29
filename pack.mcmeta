@@ -1,0 +1,10 @@
+{
+	"pack": {
+		"description": [
+			{"text": "Death's Door", "color": "gold"},
+			{"text": "\nClick your grave in chat to teleport back", "color": "gray"}
+		],
+		"min_format": 101,
+		"max_format": 101
+	}
+}
