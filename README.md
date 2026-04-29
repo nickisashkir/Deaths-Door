@@ -38,48 +38,9 @@ The pack is a thin overlay that does not modify the Vanilla Tweaks pack itself. 
 
 Because the override and namespace stay self-contained, removing this pack restores stock Vanilla Tweaks behavior with no residual state.
 
-## Configuration
-
-To change the grace effects, edit `data/graves_back/function/do_tp.mcfunction`:
-
-```
-effect give @s minecraft:resistance 10 4 false
-effect give @s minecraft:fire_resistance 10 0 false
-```
-
-The format is `effect give <target> <effect> <seconds> <amplifier> <hideParticles>`.
-
-- Amplifier `4` is Resistance V (100% reduction). Drop to `2` for Resistance III (60%), `0` for Resistance I (20%).
-- Set `false` to `true` to hide the swirl particles.
-- Adjust the `10` to change the duration in seconds.
-
-To change the chat confirmation message, edit the `tellraw` line in the same file.
-
-## Caveats
 
 **Pre-install graves.** Graves created before this pack was installed do not have a `grave_id` baked into their click action, and are not present in the flat index. Their chat links will return "That grave no longer exists." Players need to die once after install for new graves to be teleportable.
 
-**Void deaths.** Resistance V does not protect against void damage. A grave at Y=-100 in the void will still kill a returning player.
-
-**No cooldown.** A player can repeatedly click the same grave entry while the grave is still alive. Cooldowns and one-shot-per-death modes are easy additions to the tick handler if you want them.
-
-## File structure
-
-```
-pack.mcmeta
-data/
-  minecraft/tags/function/load.json
-  graves/function/creation/
-    update_grave_listing.mcfunction       (overrides Vanilla Tweaks)
-  graves_back/function/
-    load.mcfunction
-    schedule_2t.mcfunction
-    teleport_self.mcfunction
-    do_lookup.mcfunction
-    check_owner.mcfunction
-    do_tp.mcfunction
-    build_listing.mcfunction
-```
 
 ## Compatibility
 
